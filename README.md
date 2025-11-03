@@ -95,9 +95,9 @@ This app is a small FastAPI service that:
    pip install -r requirements.txt
    ```
 2. Run
-  ```bash 
-    make dev
-    ```
+   ```bash 
+   make dev
+   ```
 3. Open
   - Swagger UI: http://127.0.0.1:8002/docs
   - Health: http://127.0.0.1:8002/health
@@ -105,9 +105,9 @@ This app is a small FastAPI service that:
 ### Option B: with Docker
 
 1. Run 
-  ```bash
+   ```bash
     make dc-up
-  ```
+   ```
 2. Open
   - Swagger UI: http://127.0.0.1:8002/docs
   - Health: http://127.0.0.1:8002/health
