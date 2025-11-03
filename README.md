@@ -94,21 +94,23 @@ This app is a small FastAPI service that:
    ```bash
    pip install -r requirements.txt
    ```
-2. ```bash 
+2. Run
+  ```bash 
     make dev
-  ```
+    ```
 3. Open
-  * Swagger UI: http://127.0.0.1:8002/docs
-  * Health: http://127.0.0.1:8002/health
+  - Swagger UI: http://127.0.0.1:8002/docs
+  - Health: http://127.0.0.1:8002/health
 
 ### Option B: with Docker
 
-1. ```bash
+1. Run 
+  ```bash
     make dc-up
   ```
 2. Open
-  * Swagger UI: http://127.0.0.1:8002/docs
-  * Health: http://127.0.0.1:8002/health
+  - Swagger UI: http://127.0.0.1:8002/docs
+  - Health: http://127.0.0.1:8002/health
 
 ## 5. How to run tests
 
@@ -116,7 +118,7 @@ Tests live under tests/ and use pytest plus FastAPI’s TestClient.
 
 Run locally:
 ```bash 
-    pytest 
+  pytest 
   ```
 
 Run in Docker (after building image):
@@ -128,33 +130,33 @@ That shows the API starts and the core filters (applicant, street, status, nearb
 
 ## 6. Endpoints
 
-### GET /health
+`GET /health`
 Returns a simple JSON payload to show the service is up.
 
-### GET /api/foodtrucks
+`GET /api/foodtrucks`
 Query params:
 
-applicant: substring, case-insensitive
+- applicant: substring, case-insensitive
 
-status: exact match, e.g. APPROVED
+- status: exact match, e.g. APPROVED
 
-street: substring on the address, so SAN matches SANSOME ST
+- street: substring on the address, so SAN matches SANSOME ST
 
-fooditem: substring on the FoodItems field from the dataset
+- fooditem: substring on the FoodItems field from the dataset
 Returns a list of trucks with the fields from the dataset (applicant, status, address, fooditems, etc.).
 
-### GET /api/foodtrucks/nearby
+`GET /api/foodtrucks/nearby`
 Query params:
 
-lat (required)
+- lat (required)
 
-lng (required)
+- lng (required)
 
-status (optional, default APPROVED; if you pass status=ALL it will include any status)
+- status (optional, default APPROVED; if you pass status=ALL it will include any status)
 
-limit (optional, default 5)
+- limit (optional, default 5)
 
-fooditem (optional)
+- fooditem (optional)
 Returns the closest trucks to the given point, up to the limit. The distance field in the response is the value used for sorting, not real meters, which is fine for SF and for this challenge.
 
 
